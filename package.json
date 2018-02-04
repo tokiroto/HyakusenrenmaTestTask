@@ -1,0 +1,21 @@
+{
+  "name": "hyakusenrenmatesttask",
+  "version": "1.0.0",
+  "description": "Test task",
+  "main": "Gulpfile.js",
+  "dependencies": {
+    "gulp-jshint": "^2.1.0",
+    "gulp": "^3.9.1",
+    "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp-sass": "^3.1.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Stan Biryukov (Tokiroto)",
+  "license": "GPL-3.0"
+}

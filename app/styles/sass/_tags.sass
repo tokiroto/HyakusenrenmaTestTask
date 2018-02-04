@@ -1,0 +1,58 @@
+@font-face
+  font-family: 'proxima-nova-soft'
+  src: url('.app/content/fonts/proximanovasoft-regular-webfont.woff2') format('woff2'), url('.app/content/fonts/proximanovasoft-regular-webfont.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
+$defaultFont: 'proxima-nova-soft', sans-serif
+$tag_plate_icon_color: ''
+$deep_gray: #00ffff
+
+body
+  font-family: $defaultFont
+
+// ======================
+// Tags
+// ======================
+.tag__plate
+  .plate__icon
+    position: relative
+      display: inline-block
+    width: 2.5em
+    height: 2.5em
+    margin-right: .5em
+    border: solid 1px $tag_plate_icon_color
+    border-radius: 50%
+    padding: 1px 1px 1px 1px
+    vertical-align: middle
+    .icon__inner
+      display: table
+      width: 100%
+      text-align: center
+      .icon__image
+        display: table-cell
+        width: 1.5em
+        height: 2.5em
+        vertical-align: middle
+        font-color: $tag_plate_icon_color
+        &:after
+          font-size: 1.5em
+          font-family: 'stayjapan-icon' !important
+
+// ==========================
+// Section Article
+// ==========================
+div.section__article
+  .section__element
+    padding: 32px 0
+    .section__element__headline
+      margin: 0px
+      h2#top-header
+        margin: 0px 0px 10px 0px
+        color: $deep_gray
+        font-size: 1.6rem
+        font-weight: bold
+        border: none
+      .section__element__headline__content
+        font-size: 1.4rem
+      padding: 16px 16px

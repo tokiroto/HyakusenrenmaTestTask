@@ -1,2 +1,6 @@
 .sass-cache/
 *.css.map
+.vscode/
+node_modules/
+package-lock.json
+*.css
