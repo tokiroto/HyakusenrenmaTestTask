@@ -1,12 +1,129 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <link href="styles/css/base.css" rel="stylesheet">
     </head>
     <body>
-        <section class="container">
+        <section id="page" class="container">
+            <header class="container__header">
+                <h1>Listings</h1>
+            </header>
+            <section id="articles" class="container__articles">
 
+            </section>
         </section>
+        <!-- Post template -->
+        <template id="postTemplate">
+            <article class="post">
+                <header class="post__header">
+                    <div class="header__title">
+                        <span>PHOTOS</span>
+                    </div>
+                    <div class="header__calendar calendar--plate">
+                        <span class="calendar__day">27</span>
+                        <span class="calendar__month">MAR</span>
+                    </div>
+                </header>
+                <section class="post__content">
+                    <div class="content__heading">
+                        <h2>City Lights in New York</h2>
+                        <span class="heading__subtext">The city that never sleeps.</span>
+                    </div>
+                    <p class="content__main">
+                        New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.
+                    </p>
+                </section>
+                <footer class="post__footer">
+                    <div class="footer__clock clock--dark-grey">
+                        <i class="far fa-clock"></i>
+                        <span>6 mins ago</span>
+                    </div>
+                    <div class="footer__comments comments--dark-grey">
+                        <i class="fas fa-comments"></i>
+                        <a href="#">39 comments</a>
+                    </div>
+                </footer>
+            </article>
+        </template>
+        <script type="text/javascript">
+            window.onload = function() {
+                // example with html templates. I presume we are using modern browsers, so I omit check for browser
+                var topics = [
+                    {
+                        headerTitle: "PHOTOS",
+                        date: {
+                            day: 27,
+                            month: "MAR"
+                        },
+                        headingText: "City Lights in New York",
+                        headingSubText: "The city that never sleeps.",
+                        contentText: "New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.",
+                        comments: {
+                            mins: 32,
+                            number: 41
+                        }
+                    },
+                    {
+                        headerTitle: "PHOTOS",
+                        date: {
+                            day: 15,
+                            month: "OCT"
+                        },
+                        headingText: "City Lights in New York",
+                        headingSubText: "The city that never sleeps.",
+                        contentText: "New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.",
+                        comments: {
+                            mins: 16,
+                            number: 39
+                        }
+                    },
+                    {
+                        headerTitle: "PHOTOS",
+                        date: {
+                            day: 5,
+                            month: "JUN"
+                        },
+                        headingText: "City Lights in New York",
+                        headingSubText: "The city that never sleeps.",
+                        contentText: "New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.",
+                        comments: {
+                            mins: 5,
+                            number: 49
+                        }
+                    }
+                ],
+                renderTmplt = "",
+                pageContent = document.querySelector("#articles"),
+                // init template variables
+                tmpltContent = document.querySelector("#postTemplate"),
+                headerTitle = tmpltContent.content.querySelector(".header__title"),
+                headerCalDay = tmpltContent.content.querySelector(".calendar__day"),
+                headerCalMonth = tmpltContent.content.querySelector(".calendar__month"),
+                contentHeading = tmpltContent.content.querySelector(".content__heading h2"),
+                contentHeadSubText = tmpltContent.content.querySelector(".content__heading .heading__subtext"),
+                contentMain = tmpltContent.content.querySelector(".content__main"),
+                footerTime = tmpltContent.content.querySelector(".post__footer span"),
+                footerComments = tmpltContent.content.querySelector(".footer__comments a");
+
+                // prepare data and insert into DOM
+                for (let i = 0, length = topics.length; i < length; i++) {
+                    let topic = topics[i],
+                        comments = topic.comments;
+                    headerTitle.textContent = topic.headerTitle;
+                    headerCalDay.textContent = topic.date.day;
+                    headerCalMonth.textContent = topic.date.month;
+                    contentHeading.textContent = topic.headingText;
+                    contentHeadSubText.textContent = topic.headingSubText;
+                    contentMain.textContent = topic.contentText;
+                    footerTime.textContent = `${comments.mins} mins ago`;
+                    footerComments.textContent = `${comments.number}${(comments.number != 1)? " comments" : " comment"}`;
+
+                    renderTmplt += tmpltContent.innerHTML;
+                }
+                pageContent.innerHTML = renderTmplt;
+            };
+        </script>
     </body>
 </html>

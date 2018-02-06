@@ -1,58 +1,107 @@
-@font-face
-  font-family: 'proxima-nova-soft'
-  src: url('.app/content/fonts/proximanovasoft-regular-webfont.woff2') format('woff2'), url('.app/content/fonts/proximanovasoft-regular-webfont.woff') format('woff')
-  font-weight: normal
-  font-style: normal
+/*** Variables section ***/
+$post-color: #fff
+$post-text-color: #000
+$post-body-padding: 0 24px 24px 24px
+$header-icon-color: rgb(229, 78, 66)
+$header-text-color: #fff
+$content-main-text-color: darkgrey
+$footer-text-color: darkgrey
 
-$defaultFont: 'proxima-nova-soft', sans-serif
-$tag_plate_icon_color: ''
-$deep_gray: #00ffff
+%header-item
+  position: absolute
+  text-align: center
 
-body
-  font-family: $defaultFont
 
-// ======================
-// Tags
-// ======================
-.tag__plate
-  .plate__icon
+.container__header
+  text-align: center
+
+.container__articles
+  display: grid
+  justify-items: center
+  /*** Mobile very small screen and medium section ***/
+  grid-template-columns: 1fr
+  /*** Tablet section ***/
+  @media only screen and (min-device-width: $tablet-min-screen-width)  and (max-device-width: $tablet-max-screen-width)
+    grid-template-columns: repeat(2, 1fr)
+  /*** Desktop section ***/
+  @media screen and (min-device-width: $desktop-min-screen-width)
+    grid-template-columns: repeat(3, 1fr)
+
+/*** Post section ***/
+.post
+  background-color: $post-color
+  box-shadow: 0px 3px 15px 2px rgba(#b7b7b3, 0.7)
+  color: $post-text-color
+  display: inline-block
+  position: relative
+  margin: 20px
+  width: 20em
+
+  /*** Post Header ***/
+  .post__header
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/content/images/bg_city.jpeg')
+    background-size: 132% 210%
+    background-position: -18px -12px
+    color: $header-text-color
+    height: 9.25em
     position: relative
-      display: inline-block
-    width: 2.5em
-    height: 2.5em
-    margin-right: .5em
-    border: solid 1px $tag_plate_icon_color
-    border-radius: 50%
-    padding: 1px 1px 1px 1px
-    vertical-align: middle
-    .icon__inner
-      display: table
-      width: 100%
-      text-align: center
-      .icon__image
-        display: table-cell
-        width: 1.5em
-        height: 2.5em
-        vertical-align: middle
-        font-color: $tag_plate_icon_color
-        &:after
-          font-size: 1.5em
-          font-family: 'stayjapan-icon' !important
-
-// ==========================
-// Section Article
-// ==========================
-div.section__article
-  .section__element
-    padding: 32px 0
-    .section__element__headline
-      margin: 0px
-      h2#top-header
-        margin: 0px 0px 10px 0px
-        color: $deep_gray
-        font-size: 1.6rem
+    .header__title
+      background-color: $header-icon-color
+      bottom: 0
+      font-size: 0.9rem
+      font-weight: bold
+      padding: 10px 18px
+      @extend %header-item
+    .header__calendar
+      background-color: $header-icon-color
+      padding: 10px
+      min-width: 42px
+      right: 10px
+      top: 20px
+      @extend %header-item
+      &.calendar--plate
+        border-radius: 50%
+      .calendar__day
+        display: block
         font-weight: bold
-        border: none
-      .section__element__headline__content
-        font-size: 1.4rem
-      padding: 16px 16px
+        font-size: 1.2rem
+        padding: 0 10px
+      .calendar__month
+        display: block
+        font-size: 0.8rem
+        font-weight: bold
+
+  /*** Post Body ***/
+  .post__content
+    padding: $post-body-padding
+    text-align: left
+    .content__heading
+      h2
+        font-size: 1.7rem
+        font-weight: 900
+        margin-bottom: 0
+      .heading__subtext
+        color: $header-icon-color
+        display: block
+        font-size: 1.2rem
+        padding: 4px 0
+    .content__main
+      color: $content-main-text-color
+      line-height: 1.6
+
+  /*** Post Footer ***/
+  .post__footer
+    padding: $post-body-padding
+    .footer__clock
+      display: inline-block
+      padding-right: 5px
+      &.clock--dark-grey
+        i, span
+          color: $footer-text-color
+    .footer__comments
+      display: inline-block
+      &.comments--dark-grey
+        i, a
+          color: $footer-text-color
+
+/*** End Post section ***/

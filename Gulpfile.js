@@ -3,6 +3,7 @@
 const STYLES_PATH = './app/styles/';
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
+    del = require('del'),
     browserSync = require('browser-sync').create();
 
 /**
@@ -11,7 +12,8 @@ var gulp = require('gulp'),
 gulp.task('sass', () => {
   return gulp
     .src(`${STYLES_PATH}sass/*.sass`)
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    //.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(`${STYLES_PATH}css`))
     .pipe(browserSync.stream())
 });
@@ -30,6 +32,15 @@ gulp.task('serve', ['sass'], () => {
 });
 
 /**
+ * Task for cleaning
+ */
+gulp.task('clean', () => {
+  return del([
+    `${STYLES_PATH}css`
+  ]);
+});
+
+/**
  * Task for build to production
  */
-gulp.task('build', ['sass'])
+gulp.task('build', ['clean', 'sass'])
