@@ -1,16 +1,4 @@
-/*** Variables section ***/
-$post-color: #fff
-$post-text-color: #000
-$post-body-padding: 0 24px 24px 24px
-$header-icon-color: rgb(229, 78, 66)
-$header-text-color: #fff
-$content-main-text-color: darkgrey
-$footer-text-color: darkgrey
-
-%header-item
-  position: absolute
-  text-align: center
-
+@import 'variables'
 
 .container__header
   text-align: center
@@ -46,14 +34,12 @@ $footer-text-color: darkgrey
     height: 9.25em
     position: relative
     .header__title
-      background-color: $header-icon-color
       bottom: 0
       font-size: 0.9rem
       font-weight: bold
       padding: 10px 18px
       @extend %header-item
     .header__calendar
-      background-color: $header-icon-color
       padding: 10px
       min-width: 42px
       right: 10px
