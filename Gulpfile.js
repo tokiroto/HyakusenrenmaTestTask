@@ -11,7 +11,7 @@ var gulp = require('gulp'),
  */
 gulp.task('sass', () => {
   return gulp
-    .src(`${STYLES_PATH}sass/*.sass`)
+    .src(`${STYLES_PATH}sass/app.sass`)
     //.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest(`${STYLES_PATH}css`))
