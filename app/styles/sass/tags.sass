@@ -1,3 +1,21 @@
+.calendar
+  padding: 10px
+  min-width: 4em
+  right: 10px
+  top: 20px
+  @extend %header-item
+  &--plate
+    border-radius: 50%
+  &__day
+    display: block
+    font-weight: bold
+    font-size: 1.2rem
+    padding: 0 10px
+  &__month
+    display: block
+    font-size: 0.8rem
+    font-weight: bold
+
 /*** Post section ***/
 .post
   background-color: $post-color
@@ -23,26 +41,9 @@
       font-weight: bold
       padding: 10px 18px
       @extend %header-item
-    .header__calendar
-      padding: 10px
-      min-width: 4em
-      right: 10px
-      top: 20px
-      @extend %header-item
-      &.calendar--plate
-        border-radius: 50%
-      .calendar__day
-        display: block
-        font-weight: bold
-        font-size: 1.2rem
-        padding: 0 10px
-      .calendar__month
-        display: block
-        font-size: 0.8rem
-        font-weight: bold
 
   /*** Post Body ***/
-  .post__content
+  &__content
     padding: $post-body-padding
     text-align: left
     .content__heading
@@ -60,7 +61,7 @@
       line-height: 1.6
 
   /*** Post Footer ***/
-  .post__footer
+  &__footer
     padding: $post-body-padding
     .footer__clock
       display: inline-block
@@ -73,5 +74,4 @@
       &.comments--dark-grey
         i, a
           color: $footer-text-color
-
 /*** End Post section ***/

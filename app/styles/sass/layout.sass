@@ -25,10 +25,10 @@ a
     width: 100%
     font-size: 86.5%
 
-    .container__header
+    &__header
         font-size: 1.5em
         text-align: center
-    .container__articles
+    &__articles
         padding: 10px
 
     /*** Mobile section ***/
@@ -43,21 +43,21 @@ a
             width: 44%
     /*** Desktop section ***/
     @media screen and (min-device-width: $tablet-max-screen-width)
-        .container__articles
+        &__articles
             padding: 0 0 0 3%
         .post
             width: 28.3%
             &:nth-child(4n)
                 clear: both
     @media screen and (min-device-width: $desktop-min-screen-width)
-        .container__articles
+        &__articles
             padding: 0 0 0 6%
         .post
             width: 28.3%
             &:nth-child(4n)
                 clear: both
     @media screen and (min-device-width: $desktop-max-screen-width)
-        .container__articles
+        &__articles
             padding: 0 0 0 15%
         .post
             width: 25.3%
