@@ -1,28 +1,14 @@
-.container__header
-  text-align: center
-
-.container__articles
-  display: grid
-  justify-items: center
-  /*** Mobile very small screen and medium section ***/
-  grid-template-columns: 1fr
-  /*** Tablet section ***/
-  @media only screen and (min-device-width: $tablet-min-screen-width)  and (max-device-width: $tablet-max-screen-width)
-    grid-template-columns: repeat(2, 1fr)
-  /*** Desktop section ***/
-  @media screen and (min-device-width: $desktop-min-screen-width)
-    grid-template-columns: repeat(3, 1fr)
-
 /*** Post section ***/
 .post
   background-color: $post-color
   box-shadow: 0px 3px 15px 2px rgba(#b7b7b3, 0.7)
   color: $post-text-color
-  display: inline-block
-  position: relative
-  margin: 20px
-  width: 20em
-
+  margin: 0 1em 2em
+  width: auto
+  transition: all 0.4s ease
+  &:hover
+    box-shadow: 0px 1px 2px 0px rgba(#b7b7b3, 0.4)
+  
   /*** Post Header ***/
   .post__header
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/content/images/bg_city.jpeg')
@@ -39,7 +25,7 @@
       @extend %header-item
     .header__calendar
       padding: 10px
-      min-width: 42px
+      min-width: 4em
       right: 10px
       top: 20px
       @extend %header-item

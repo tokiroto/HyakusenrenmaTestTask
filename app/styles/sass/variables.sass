@@ -23,3 +23,11 @@ $footer-text-color: darkgrey
   background-color: $header-icon-color
   position: absolute
   text-align: center
+
+/*** Mixins ***/
+@mixin box-sizing($type)
+  box-sizing: $type
+  -moz-box-sizing: $type
+  -webkit-box-sizing: $type
+
+  
